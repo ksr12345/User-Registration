@@ -51,7 +51,7 @@ public class UserRegistration {
 
         System.out.println("Enter password minimum 8 characters: ");
         String password=sc.nextLine();
-        String pass = "^.{8,}$";
+        String pass = "^(?=.*[A-Z]).{8,}$";
         Pattern compiledPassword=Pattern.compile(pass);
         Matcher matchPassword=compiledPassword.matcher(password);
         if(matchPassword.matches())
