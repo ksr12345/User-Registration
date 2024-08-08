@@ -5,42 +5,62 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    public static boolean fNameValidate(String fName){
+    public static boolean fNameValidate(String fName) throws CustomException{
         String pattern = "^[A-Z][a-zA-Z]+$";
         Pattern compiledPattern = Pattern.compile(pattern);
         Matcher matcher = compiledPattern.matcher(fName);
-        return matcher.matches();
+        if(matcher.matches()){
+            return true;
+        } else {
+            throw new CustomException("Invalid First name");
+        }
     }
 
-    public static boolean lNameValidate(String lName){
+    public static boolean lNameValidate(String lName) throws CustomException{
         String pattern = "^[A-Z][a-zA-Z]+$";
         Pattern compiledPattern = Pattern.compile(pattern);
         Matcher matcher = compiledPattern.matcher(lName);
-        return matcher.matches();
+        if(matcher.matches()){
+            return true;
+        } else {
+            throw new CustomException("Invalid last name");
+        }
     }
 
-    public static boolean emailValidate(String email){
+    public static boolean emailValidate(String email) throws CustomException{
         String pattern2 = "^[a-zA-Z0-9.%+-]+\\.[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}(\\.[a-zA-Z]{2,6})?$";
         Pattern compiledPattern2 = Pattern.compile(pattern2);
         Matcher matcher3 = compiledPattern2.matcher(email);
-        return matcher3.matches();
+        if(matcher3.matches()){
+            return true;
+        } else {
+            throw new CustomException("Invalid email");
+        }
     }
 
-    public static boolean phoneNumberValidate(String phoneNumber){
+    public static boolean phoneNumberValidate(String phoneNumber) throws CustomException{
         String mobileRegex = "^\\d{2} \\d{10}$";
         Pattern CompiledMobile = Pattern.compile(mobileRegex);
         Matcher matcherPhone =CompiledMobile.matcher(phoneNumber);
-        return matcherPhone.matches();
+        if(matcherPhone.matches()){
+            return true;
+        } else {
+            throw new CustomException("Invalid Phone number");
+        }
     }
 
-    public static boolean passwordValidate(String password){
+    public static boolean passwordValidate(String password) throws CustomException{
         String pass = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+{}\\[\\]:;\"'<>,.?~`]).{8,}$";
         Pattern compiledPassword=Pattern.compile(pass);
         Matcher matchPassword=compiledPassword.matcher(password);
-        return matchPassword.matches();
+        if(matchPassword.matches()){
+            return true;
+        } else {
+            throw new CustomException("Invalid Phone number");
+        }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CustomException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter first name:");
         String fName = sc.next();
