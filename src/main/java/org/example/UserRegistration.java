@@ -48,5 +48,15 @@ public class UserRegistration {
         }else {
             System.out.println("INVALID");
         }
+
+        System.out.println("Enter password minimum 8 characters: ");
+        String password=sc.nextLine();
+        String pass = "^.{8,}$";
+        Pattern compiledPassword=Pattern.compile(pass);
+        Matcher matchPassword=compiledPassword.matcher(password);
+        if(matchPassword.matches())
+            System.out.println("VALID");
+        else
+            System.out.println("INVALID");
     }
 }
