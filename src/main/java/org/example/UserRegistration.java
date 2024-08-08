@@ -7,12 +7,17 @@ import java.util.regex.Pattern;
 public class UserRegistration {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter first name");
+        System.out.println("Enter first name:");
         String fName=sc.next();
         String pattern = "^[A-Z][a-zA-Z]+$";
         Pattern compiledPattern = Pattern.compile(pattern);
         Matcher matcher = compiledPattern.matcher(fName);
         System.out.println(matcher.matches());
+
+        System.out.println("Enter last name:");
+        String lName=sc.next();
+        Matcher matcher2 = compiledPattern.matcher(lName);
+        System.out.println(matcher2.matches());
 
     }
 }
